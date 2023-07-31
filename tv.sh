@@ -192,49 +192,25 @@ adb shell appops reset tunein.player
 adb shell appops reset com.weawow
 adb shell appops write-settings
 
-adb shell pm disable-user com.amazon.amazonvideo.livingroom
-adb shell pm disable-user com.netflix.ninja
-adb shell pm disable-user android.autoinstalls.config.xioami.mibox3
-adb shell pm disable-user com.google.android.inputmethod.latin
-adb shell pm disable-user com.mitv.tvhome.michannel
-adb shell pm disable-user com.mitv.milinkservice
-adb shell pm disable-user tv.alphonso.alphonso_eula
-adb shell pm disable-user com.xiaomo.tv.milegal
-adb shell pm disable-user com.xiaomi.mitv.updateservice
+
 adb shell pm disable-user com.miui.tv.analytics
-adb shell pm disable-user com.mitv.videoplayer
-adb shell pm disable-user com.mitv.tvhome.atv
-adb shell pm disable-user com.mitv.milinkservice
-adb shell pm disable-user com.mitv.download.service
-adb shell pm disable-user com.android.providers.userdictionary
-adb shell pm disable-user com.android.cts.priv.ctsshim
-adb shell pm disable-user com.android.cts.ctsshim
-adb shell pm disable-user com.android.wallpaperbackup
-adb shell pm disable-user com.google.android.backuptransport
-adb shell pm disable-user com.android.sharedstoragebackup
-adb shell pm disable-user com.android.backupconfirm
-adb shell pm disable-user com.xm.webcontent
-adb shell pm disable-user com.google.android.youtube.tvmusic 
-adb shell pm disable-user com.google.android.videos
-adb shell pm disable-user com.google.android.tvrecommendations 
-adb shell pm disable-user com.google.android.tv.bugreportsender
-adb shell pm disable-user com.google.android.tts
-adb shell pm disable-user com.google.android.syncadapters.contacts
-adb shell pm disable-user com.google.android.syncadapters.calendar
-adb shell pm disable-user com.google.android.play.games
-adb shell pm disable-user com.google.android.music
-adb shell pm disable-user com.google.android.marvin.talkback
-adb shell pm disable-user com.google.android.feedback 
-adb shell pm disable-user com.google.android.apps.nbu.smartconnect.tv
-adb shell pm disable-user com.android.providers.contacts
 adb shell pm disable-user com.android.providers.calendar
-adb shell pm disable-user com.android.printspooler
-adb shell pm disable-user 
-adb shell pm disable-user 
-adb shell pm disable-user 
-adb shell pm disable-user 
-adb shell pm disable-user 
-adb shell pm disable-user 
+adb shell pm disable-user com.google.android.syncadapters.calendar
+adb shell pm disable-user mitv.service
+adb shell pm disable-user com.spocky.projengmenu
+adb shell pm disable-user com.mitv.tvhome.atv
+adb shell pm disable-user mitv.tvhome.atv
+adb shell pm disable-user android.autoinstalls.config.xioami.mibox3
+adb shell pm disable-user com.xiaomi.mitv.updateservice
+adb shell pm disable-user mitv.videoplayer
+adb shell pm disable-user mitv.tvhome.michannel
+adb shell pm disable-user mitv.dream
+adb shell pm disable-user com.google.android.play.games
+adb shell pm disable-user com.netflix.ninja
+adb shell pm disable-user com.android.providers.contacts
+
+
+
 adb shell pm trim-caches 4096G 
 
 adb shell svc data disable
@@ -243,3 +219,110 @@ adb shell cmd stats write-to-disk
 adb shell sm fstrim
 adb shell sync
 adb reboot
+
+
+
+package:mitv.service
+package:com.android.cts.priv.ctsshim
+package:com.xiaomi.android.tvsetup.partnercustomizer
+package:com.google.android.ext.services
+package:com.google.android.apps.mediashell
+package:com.google.android.katniss
+package:com.android.dynsystem
+package:com.android.providers.calendar
+package:com.android.tv.settings
+package:com.android.providers.media
+package:com.google.android.onetimeinitializer
+package:com.google.android.ext.shared
+package:com.spocky.projengmenu
+package:com.android.externalstorage
+package:com.android.htmlviewer
+package:com.android.companiondevicemanager
+package:com.android.providers.downloads
+package:com.android.providers.tv
+package:com.android.networkstack.inprocess
+package:com.google.android.backdrop
+package:com.droidlogic
+package:com.google.android.tungsten.setupwraith
+package:android.autoinstalls.config.xioami.mibox3
+package:com.xm.webcontent
+package:com.google.android.overlay.modules.permissioncontroller
+package:com.android.vending
+package:com.android.pacprocessor
+package:com.android.certinstaller
+package:com.google.android.marvin.talkback
+package:com.urbandroid.lux
+package:android
+package:com.android.mtp
+package:com.mitv.tvhome.atv
+package:com.android.backupconfirm
+package:com.android.statementservice
+package:com.waxrain.telnetd
+package:com.android.settings.intelligence
+package:com.google.android.permissioncontroller
+package:com.mi.bluetooth
+package:com.amazon.amazonvideo.livingroom
+package:com.android.providers.settings
+package:com.android.sharedstoragebackup
+package:com.android.printspooler
+package:com.xiaomi.mitv.updateservice
+package:com.mitv.videoplayer
+package:com.android.dreams.basic
+package:com.google.android.overlay.modules.ext.services
+package:com.android.se
+package:com.android.inputdevices
+package:com.google.android.tvrecommendations
+package:com.xiaomi.mitv.smartshare
+package:com.mm.droid.livetv.bluetv
+package:com.google.android.modulemetadata
+package:com.google.android.tvlauncher
+package:com.google.android.webview
+package:com.android.keychain
+package:com.google.android.youtube.tvmusic
+package:com.google.android.packageinstaller
+package:com.google.android.gms
+package:com.google.android.gsf
+package:com.google.android.tts
+package:com.android.wifi.resources
+package:com.google.android.partnersetup
+package:com.android.localtransport
+package:com.android.networkstack.tethering.droidlogic
+package:com.google.android.videos
+package:com.xiaomo.tv.milegal
+package:com.android.proxyhandler
+package:com.google.android.overlay.modules.permissioncontroller.forframework
+package:com.mitv.tvhome.mitvplus
+package:com.google.android.feedback
+package:com.google.android.syncadapters.calendar
+package:com.android.soundpicker
+package:com.android.networkstack.tethering.inprocess.droidlogic
+package:com.miui.tv.analytics
+package:com.xiaomi.wfdsinkhelperservice
+package:com.android.networkstack.tethering.inprocess
+package:com.android.networkstack.permissionconfig
+package:com.xiaomi.statistic
+package:com.google.android.sss.authbridge
+package:com.android.cts.ctsshim
+package:com.google.android.overlay.modules.modulemetadata.forframework
+package:com.valor.mfc.droid.tvapp.generic
+package:com.google.android.youtube.tv
+package:com.android.vpndialogs
+package:com.google.android.tv.frameworkpackagestubs
+package:com.android.shell
+package:com.android.wallpaperbackup
+package:com.android.providers.userdictionary
+package:com.android.providers.media.module
+package:com.android.hotspot2.osulogin
+package:com.google.android.tv.remote.service
+package:com.android.location.fused
+package:com.android.systemui
+package:com.android.bluetoothmidiservice
+package:com.mitv.dream
+package:com.mitv.tvhome.michannel
+package:com.google.android.play.games
+package:com.netflix.ninja
+package:com.android.bluetooth
+package:com.android.providers.contacts
+package:com.android.captiveportallogin
+package:com.droidlogic.overlay
+package:com.google.android.inputmethod.latin

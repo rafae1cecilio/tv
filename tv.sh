@@ -8,7 +8,7 @@ adb shell settings put global activity_starts_logging_enabled 0
 adb shell settings put global adaptive_battery_management_enabled 1 #also (force_)app_standby_enabled 1
 adb shell settings put global adb_enabled 1
 adb shell settings put global always_finish_activities 1 # Don't use 1 if you want to use Widgets in custom Launcher!!!
-adb settings put global animator_duration_scale 0.5 #leave some animation for spinners etc
+adb shell settings put global animator_duration_scale 0.5 #leave some animation for spinners etc
 adb shell settings put global app_auto_restriction_enabled 1
 adb shell settings put global app_standby_enabled 1 #only if ADAPTIVE_BATTERY_MANAGEMENT_ENABLED 1
 adb shell settings put global assisted_gps_enabled 0

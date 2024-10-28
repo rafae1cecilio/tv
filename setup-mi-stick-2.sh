@@ -6,13 +6,13 @@ wget https://github.com/nova-video-player/aos-AVP/releases/download/v6.3.4/org.c
 wget https://github.com/tailscale/tailscale-android/releases/download/1.76.2-t088d78591-gfafffd2aeba/tailscale-android-universal-1.76.2.apk -O tailscale.apk
 wget https://github.com/rafae1cecilio/tv/raw/refs/heads/main/apps/mfc.apk -O mfc.apk
 wget https://github.com/rafae1cecilio/tv/raw/refs/heads/main/apps/RedPlay_3.8.1.apk -O redtv.apk
-wget https://github.com/jellyfin/jellyfin-androidtv/releases/download/v0.17.8/jellyfin-androidtv-v0.17.8-release.apk -O jellyfin.apk
+wget https://github.com/jellyfin/jellyfin-android/releases/download/v2.6.2/jellyfin-android-v2.6.2-libre-release.apk -O jellyfin.apk
 #wget https://github.com/spocky/miproja1/releases/download/4.54/ProjectivyLauncher-4.54-c70-xda-release.apk -O launcher.apk
 wget https://dl.strem.io/android/v1.6.12-com.stremio.one/com.stremio.one-1.6.12-11049190-armeabi-v7a.apk -O stremio.apk
 wget https://syncler.net/d -O syncler.apk
 wget https://weyd.app/d -O weyd.apk
 
-IP="192.168.1.x"
+IP="192.168.1.11"
 
 adb connect $IP
 
@@ -141,6 +141,12 @@ adb -s $IP shell settings put global ble_scan_background_mode 0
 
 adb -s $IP shell settings put secure automatic_storage_manager_enabled 1 #1 if you want to clear cache
 adb -s $IP shell settings put secure automatic_storage_manager_days_to_retain 1 #(90) 10y don't touch my files, only cache
+
+adb -s $IP shell pm clear 
+
+adb -s $IP shell pm clear com.google.android.tvlauncher
+adb -s $IP shell pm clear com.google.android.tvrecommendations
+adb -s $IP shell pm clear com.google.android.tungsten.setupwraith
 
 adb -s $IP shell pm trim-caches 4096G 
 

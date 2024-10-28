@@ -24,6 +24,7 @@ adb -s $IP install -r -d jellyfin.apk
 adb -s $IP install -r -d launcher.apk
 adb -s $IP install -r -d stremio.apk
 adb -s $IP install -r -d syncler.apk
+adb -s $IP install -r -d weyd.apk
 
 
 adb -s $IP shell pm disable-user --user 0 com.google.android.onetimeinitializer
@@ -47,6 +48,10 @@ adb -s $IP shell appops set com.netflix.ninja RUN_ANY_IN_BACKGROUND ignore
 adb -s $IP shell appops set com.amazon.amazonvideo.livingroom RUN_IN_BACKGROUND ignore
 adb -s $IP shell appops set com.amazon.amazonvideo.livingroom RUN_ANY_IN_BACKGROUND ignore
 adb -s $IP shell appops write-settings
+
+adb -s $IP shell settings put global http_proxy 192.168.1.5:3128
+adb -s $IP shell settings put global global_http_proxy_host 192.168.1.5
+adb -s $IP shell settings put global global_http_proxy_port 3128
 
 adb -s $IP shell settings put global private_dns_mode hostname
 adb -s $IP shell settings put global private_dns_specifier ON--4K-c87e29.dns.nextdns.io

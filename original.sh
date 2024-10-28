@@ -1,7 +1,5 @@
 #!/bin/sh
 
-adb connect 192.168.1.235
-
 adb shell settings put global HIC_enable 0
 adb shell settings put global activity_manager_constants max_cached_processes=16,power_check_max_cpu_1=50 # dumpsys activity settings
 adb shell settings put global activity_starts_logging_enabled 0

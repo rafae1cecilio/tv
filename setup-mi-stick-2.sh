@@ -51,9 +51,9 @@ adb -s $IP shell appops set com.amazon.amazonvideo.livingroom RUN_IN_BACKGROUND 
 adb -s $IP shell appops set com.amazon.amazonvideo.livingroom RUN_ANY_IN_BACKGROUND ignore
 adb -s $IP shell appops write-settings
 
-adb -s $IP shell settings put global http_proxy 192.168.1.5:3128
-adb -s $IP shell settings put global global_http_proxy_host 192.168.1.5
-adb -s $IP shell settings put global global_http_proxy_port 3128
+#adb -s $IP shell settings put global http_proxy :0
+#adb -s $IP shell settings put global global_http_proxy_host :0
+#adb -s $IP shell settings put global global_http_proxy_port :0
 
 adb -s $IP shell settings put global private_dns_mode hostname
 adb -s $IP shell settings put global private_dns_specifier Mi--Box-c87e29.dns.nextdns.io
@@ -141,8 +141,6 @@ adb -s $IP shell settings put global ble_scan_background_mode 0
 
 adb -s $IP shell settings put secure automatic_storage_manager_enabled 1 #1 if you want to clear cache
 adb -s $IP shell settings put secure automatic_storage_manager_days_to_retain 1 #(90) 10y don't touch my files, only cache
-
-adb -s $IP shell pm clear 
 
 adb -s $IP shell pm clear com.google.android.tvlauncher
 adb -s $IP shell pm clear com.google.android.tvrecommendations

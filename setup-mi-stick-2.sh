@@ -12,7 +12,7 @@ wget https://dl.strem.io/android/v1.6.12-com.stremio.one/com.stremio.one-1.6.12-
 #wget https://syncler.net/d -O syncler.apk
 #wget https://weyd.app/d -O weyd.apk
 
-IP="192.168.1.104"
+IP="192.168.1.220"
 
 adb connect $IP
 

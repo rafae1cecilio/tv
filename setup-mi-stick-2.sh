@@ -2,17 +2,17 @@
 
 apt update && apt install curl wget android-tools-adb -y
 
-wget https://github.com/nova-video-player/aos-AVP/releases/download/v6.3.4/org.courville.nova-2610404-6.3.4-20241025.1946-universal-release.apk -O nova.apk 
-wget https://github.com/tailscale/tailscale-android/releases/download/1.76.2-t088d78591-gfafffd2aeba/tailscale-android-universal-1.76.2.apk -O tailscale.apk
+wget https://github.com/nova-video-player/aos-AVP/releases/download/v6.3.15/org.courville.nova-2615316-6.3.15-20241221.1501-universal-release.apk -O nova.apk 
+wget https://github.com/tailscale/tailscale-android/releases/download/1.78.0-tb06ec2696-ge8bd36bfd/tailscale-android-universal-1.78.0.apk -O tailscale.apk
 wget https://github.com/rafae1cecilio/tv/raw/refs/heads/main/apps/mfc.apk -O mfc.apk
 wget https://github.com/rafae1cecilio/tv/raw/refs/heads/main/apps/RedPlay_3.8.1.apk -O redtv.apk
 wget https://github.com/jellyfin/jellyfin-android/releases/download/v2.6.2/jellyfin-android-v2.6.2-libre-release.apk -O jellyfin.apk
 #wget https://github.com/spocky/miproja1/releases/download/4.54/ProjectivyLauncher-4.54-c70-xda-release.apk -O launcher.apk
 wget https://dl.strem.io/android/v1.6.12-com.stremio.one/com.stremio.one-1.6.12-11049190-armeabi-v7a.apk -O stremio.apk
-wget https://syncler.net/d -O syncler.apk
-wget https://weyd.app/d -O weyd.apk
+#wget https://syncler.net/d -O syncler.apk
+#wget https://weyd.app/d -O weyd.apk
 
-IP="192.168.1.11"
+IP="192.168.1.104"
 
 adb connect $IP
 
@@ -21,10 +21,10 @@ adb -s $IP install -r -d tailscale.apk
 adb -s $IP install -r -d mfc.apk
 adb -s $IP install -r -d redtv.apk
 adb -s $IP install -r -d jellyfin.apk
-adb -s $IP install -r -d launcher.apk
+#adb -s $IP install -r -d launcher.apk
 adb -s $IP install -r -d stremio.apk
-adb -s $IP install -r -d syncler.apk
-adb -s $IP install -r -d weyd.apk
+#adb -s $IP install -r -d syncler.apk
+#adb -s $IP install -r -d weyd.apk
 
 #adb -s $IP shell pm disable-user --user 0 com.google.android.tvlauncher
 #adb -s $IP shell pm disable-user --user 0 com.google.android.tvrecommendations
@@ -75,11 +75,11 @@ adb -s $IP shell settings put secure doze_enabled 0
 adb -s $IP shell settings put global swap_enabled 0
 adb -s $IP shell settings put global zram_enabled 1
 
-adb -s $IP shell settings put global sys_free_storage_log_interval 1440 # 1 day
-adb -s $IP shell settings put global sys_traced 0
-adb -s $IP shell settings put global sysui_powerui_enabled 1
-adb -s $IP shell settings put global system_fonts_name "Android Font" #dunno what other font is installed
-adb -s $IP shell settings put global tcp_default_init_rwnd 20 #60, kernel 4-20 MAJOR network speedup!
+#adb -s $IP shell settings put global sys_free_storage_log_interval 1440 # 1 day
+#adb -s $IP shell settings put global sys_traced 0
+#adb -s $IP shell settings put global sysui_powerui_enabled 1
+#adb -s $IP shell settings put global system_fonts_name "Android Font" #dunno what other font is installed
+#adb -s $IP shell settings put global tcp_default_init_rwnd 20 #60, kernel 4-20 MAJOR network speedup!
 
 adb -s $IP shell settings put global transition_animation_scale 0.2
 adb -s $IP shell settings put global animator_duration_scale 0.5 #leave some animation for spinners etc
@@ -93,19 +93,19 @@ adb -s $IP shell settings put global ntp_timeout 60000 #def 5000, longer for net
 adb -s $IP shell settings put global mobile_data 0
 adb -s $IP shell settings put global mobile_data_always_on 0
 
-adb -s $IP shell settings put global netstats_enabled 0 # bandwidth control, some apps need this?
-adb -s $IP shell settings put global netstats_poll_interval 3600000 #def 30min 30*60*1000
+#adb -s $IP shell settings put global netstats_enabled 0 # bandwidth control, some apps need this?
+#adb -s $IP shell settings put global netstats_poll_interval 3600000 #def 30min 30*60*1000
 
-adb -s $IP shell settings put global network_avoid_bad_wifi 0
-adb -s $IP shell settings put global network_metered_multipath_preference 0 #(0 or 3) 1=handover 2=reliable 4=performance (5ghz) 3=1+2
+#adb -s $IP shell settings put global network_avoid_bad_wifi 0
+#adb -s $IP shell settings put global network_metered_multipath_preference 0 #(0 or 3) 1=handover 2=reliable 4=performance (5ghz) 3=1+2
 adb -s $IP shell settings put global network_recommendations_enabled -1  #-1=forced off 0=disabled 1=enabled
 adb -s $IP shell settings put global network_scoring_ui_enabled 0 #wifi_badging_thresholds
 
 adb -s $IP shell settings put global fstrim_mandatory_interval 604800000 #every week in ms
-adb -s $IP shell /system/bin/device_config put activity_manager max_cached_processes 16
-adb -s $IP shell /system/bin/device_config put activity_manager max_phantom_processes 32
-adb -s $IP shell /system/bin/device_config set_sync_disabled_for_tests persistent
-adb -s $IP shell cmd power set-fixed-performance-mode-enabled true
+#adb -s $IP shell /system/bin/device_config put activity_manager max_cached_processes 16
+#adb -s $IP shell /system/bin/device_config put activity_manager max_phantom_processes 32
+#adb -s $IP shell /system/bin/device_config set_sync_disabled_for_tests persistent
+#adb -s $IP shell cmd power set-fixed-performance-mode-enabled true
 
 adb -s $IP shell settings put system rakuten_denwa 0
 adb -s $IP shell settings put system send_security_reports 0
@@ -140,7 +140,7 @@ adb -s $IP shell settings put global ble_scan_always_enabled 0
 adb -s $IP shell settings put global ble_scan_background_mode 0
 
 adb -s $IP shell settings put secure automatic_storage_manager_enabled 1 #1 if you want to clear cache
-adb -s $IP shell settings put secure automatic_storage_manager_days_to_retain 1 #(90) 10y don't touch my files, only cache
+adb -s $IP shell settings put secure automatic_storage_manager_days_to_retain 5 #(90) 10y don't touch my files, only cache
 
 adb -s $IP shell pm clear com.google.android.tvlauncher
 adb -s $IP shell pm clear com.google.android.tvrecommendations
